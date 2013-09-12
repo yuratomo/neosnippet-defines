@@ -1,0 +1,26 @@
+snippet     dp
+abbr        dependency_property
+    public static readonly DependencyProperty ${1:NAME}Property =
+      DependencyProperty.Register("$1", typeof(${2:TYPE}), typeof(${3:THIS_CLASS}));
+
+    public $2 $1
+    {
+      get { return ($2)this.GetValue($1Property); }
+      set { this.SetValue($1Property, value); }
+    }
+
+snippet     cm
+abbr        comment of method
+    /// <summary>
+    /// ${1}
+    /// </summary>
+    /// <returns>
+    /// ${2}
+    /// </returns>
+
+snippet     cp
+abbr        comment parameter
+    <param name="${1}">
+    /// ${2}
+    /// </param>
+
