@@ -1,26 +1,129 @@
+########################################################
 snippet     dp
-abbr        dependency_property
-    public static readonly DependencyProperty ${1:NAME}Property =
-      DependencyProperty.Register("$1", typeof(${2:TYPE}), typeof(${3:THIS_CLASS}));
+abbr        Dependency Property.
+    /// <summary>
+    /// $1 Dependency property.
+    /// </summary>
+    public static readonly DependencyProperty $1Property =
+        DependencyProperty.Register("$1", typeof($2), typeof(`expand('%:r')`));
 
-    public $2 $1
+    /// <summary>
+    /// Gets or sets the $1 property. 
+    /// </summary>
+    public ${2:Type} ${1:Name}
     {
       get { return ($2)this.GetValue($1Property); }
       set { this.SetValue($1Property, value); }
     }
 
-snippet     cm
-abbr        comment of method
+########################################################
+snippet     prop
+abbr        Property
     /// <summary>
-    /// ${1}
+    /// $1 Property.
     /// </summary>
-    /// <returns>
-    /// ${2}
-    /// </returns>
+    public ${2:TYPE} ${1:NAME} { get; set; }
 
-snippet     cp
-abbr        comment parameter
-    <param name="${1}">
-    /// ${2}
+########################################################
+snippet     propfull
+abbr        Property full
+    /// <summary>
+    /// $1 Property.
+    /// </summary>
+    public ${2:TYPE} ${1:NAME}
+    {
+      get
+      {
+          return this._$1;
+      }
+      set
+      {
+          this._$1 = value;
+       }
+    }
+    private $2 _$1 = new $2();
+
+########################################################
+snippet     func
+abbr        Function
+    /// <summary>
+    /// ${5}
+    /// </summary>
+    /// <param name="$4">
+    /// ${6}
     /// </param>
+    /// <returns>
+    /// ${7}
+    /// </returns>
+    public ${2:Retval} ${1:FuncName}( ${3:ParamType} ${4:ParamName} )
+    {
+        ${8}
+    }
 
+########################################################
+snippet     class
+abbr        Class
+    /// <summary>
+    /// ${2}
+    /// </summary>
+    public class ${1:ClassName}
+    {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public $1()
+        {
+        }
+
+    }
+
+########################################################
+snippet     conv
+abbr        IValueConverter Class
+    [ValueConversion(typeof(${1:From}), typeof(${2:To}))]
+    public class $1Converter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            var from = value as $1;
+            $2 to;
+
+            return to;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            var to = value as $2;
+            $1 from;
+
+            return from;
+        }
+    }
+
+########################################################
+snippet     cmd
+abbr        ICommand Class
+
+    #region $1 Command
+
+    /// <summary>
+    /// $1 Command
+    /// </summary>
+    class ${1:Name}Command : ICommand
+    {
+        public event EventHandler CanExecuteChanged;
+
+        public bool CanExecute( object parameter )
+        {
+            ${2}
+            return true;
+        }
+
+        public void Execute( object parameter )
+        {
+            ${3}
+        }
+    }
+    public ICommand $1Command { get; private set; }
+
+    #endregion
