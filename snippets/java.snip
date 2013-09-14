@@ -1,0 +1,254 @@
+########################################################
+snippet     prop
+abbr        Property
+    /**
+     * ${3}
+     */
+    public ${2:TYPE} ${1:NAME};
+
+########################################################
+snippet     func
+abbr        Function
+    /**
+     * ${5}
+     * @param  $4    
+     * @retval 
+     */
+    public ${2:Retval} ${1:FuncName}( ${3:ParamType} ${4:ParamName} )
+    {
+    }
+
+########################################################
+snippet     class
+abbr        Class
+    /**
+     * ${2}
+     */
+    public class ${1:ClassName}
+    {
+        /**
+         * Constructor
+         */
+        public $1()
+        {
+        }
+    }
+
+########################################################
+snippet     if
+abbr        if
+    if (${1}) {
+        ${2}
+    }
+
+########################################################
+snippet     while
+abbr        while
+    while (${1}) {
+        ${2}
+    }
+
+########################################################
+snippet     for
+abbr        for
+    for (int ${1:idx}=0; idx<${2:cnt}; idx++) {
+        ${3}
+    }
+
+########################################################
+snippet     main
+abbr        main program
+    public class `expand('%:r')` {
+        public static void main (String[] args)
+        {
+            System.out.println("Hello World !!");
+            ${1}
+        }
+    } 
+
+########################################################
+snippet     singleton
+abbr        Singleton Class
+    public class ${1:ClassName} {
+        private static $1 _instance =  new $1();
+
+        /**
+         * Constructor (private)
+         */
+        private $1()
+        {
+        }
+
+        /**
+         * Get instance for class $1
+         */
+        public static $1 getInstance()
+        {
+            return _instance;
+        }
+    }
+
+########################################################
+snippet     filewrite
+abbr        File Writer
+
+    BufferedWriter out = null;
+    try {
+        out = new BufferedWriter(new FileWriter(${1:FilePath}, true));
+        out.write(${2:WriteString}});
+    } catch (IOException e) {
+        // error processing code
+    } finally {
+        if (out != null) {
+            out.close();
+        }
+    }
+
+########################################################
+snippet     dirlist
+abbr        Directory List
+    File dir = new File(${1:DirectoryPath});
+    String[] dirItems = dir.list();
+    if (dirItems == null) {
+        // Either dir does not exist or is not a directory
+    } else {
+        for (int i=0; i < dirItems.length; i++) {
+            // Get filename of file or directory
+            String filename = dirItems[i];
+        }
+    }
+
+########################################################
+snippet     methodname
+abbr        Method Name
+    String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+########################################################
+snippet     str2date
+abbr        String to Date
+    SimpleDateFormat format = new SimpleDateFormat( "dd.MM.yyyy" );
+    Date date = format.parse( ${1:String} );
+
+########################################################
+snippet     filecopy
+abbr        Fast file copy
+    public static void fileCopy( File in, File out )
+            throws IOException
+    {
+        FileChannel inChannel = new FileInputStream( in ).getChannel();
+        FileChannel outChannel = new FileOutputStream( out ).getChannel();
+        try
+        {
+            int maxCount = (64 * 1024 * 1024) - (32 * 1024);
+            long size = inChannel.size();
+            long position = 0;
+            while ( position < size )
+            {
+               position += inChannel.transferTo( position, maxCount, outChannel );
+            }
+        }
+        finally
+        {
+            if ( inChannel != null )
+            {
+               inChannel.close();
+            }
+            if ( outChannel != null )
+            {
+                outChannel.close();
+            }
+        }
+    }
+
+
+########################################################
+snippet     email
+abbr        Send e-mail
+    import javax.mail.*;
+    import javax.mail.internet.*;
+    import java.util.*;
+    public void postMail( String recipients[ ], String subject, String message , String from) throws MessagingException
+    {
+        boolean debug = false;
+
+         //Set the host smtp address
+         Properties props = new Properties();
+         props.put("mail.smtp.host", "smtp.example.com");
+
+        // create some properties and get the default Session
+        Session session = Session.getDefaultInstance(props, null);
+        session.setDebug(debug);
+
+        // create a message
+        Message msg = new MimeMessage(session);
+
+        // set the from and to address
+        InternetAddress addressFrom = new InternetAddress(from);
+        msg.setFrom(addressFrom);
+
+        InternetAddress[] addressTo = new InternetAddress[recipients.length]; 
+        for (int i = 0; i < recipients.length; i++)
+        {
+            addressTo[i] = new InternetAddress(recipients[i]);
+        }
+        msg.setRecipients(Message.RecipientType.TO, addressTo);
+
+        // Optional : You can also set your custom headers in the Email if you Want
+        msg.addHeader("MyHeaderName", "myHeaderValue");
+
+        // Setting the Subject and Content Type
+        msg.setSubject(subject);
+        msg.setContent(message, "text/plain");
+        Transport.send(msg);
+    }
+
+
+########################################################
+snippet     http
+abbr        Send HTTP request & fetching data
+    import java.io.BufferedReader;
+    import java.io.InputStreamReader;
+    import java.net.URL;
+    try {
+        URL url = new URL(${1:url});
+        BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
+        String strTemp = "";
+        while(null != (strTemp = br.readLine())){
+            System.out.println(strTemp);
+        }
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+
+########################################################
+snippet     servlet
+abbr        Http servlet
+    import java.io.*;
+    import javax.servlet.*;
+    import javax.servlet.http.*;
+
+    public class ${1:Name} extends HttpServlet {
+        /**
+         * GET
+         */
+        public void doGet(HttpServletRequest request, HttpServletResponse response)
+          throws IOException, ServletException
+        {
+            String val = request.getParameter("key1");
+            String vals[] = request.getParameterValues("key2");
+            if (vals != null){
+              for (int idx=0 ; idx<vals.length; idx++){
+                out.println(vals[idx]);
+              }
+            }
+        }
+
+        /**
+         * POST
+         */
+        public void doPost(HttpServletRequest request, HttpServletResponse response)
+          throws IOException, ServletException
+        {
+        }
+    }
+

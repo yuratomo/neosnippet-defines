@@ -78,6 +78,50 @@ abbr        Class
     }
 
 ########################################################
+snippet     if
+abbr        if
+    if (${1})
+    {
+        ${2}
+    }
+
+########################################################
+snippet     while
+abbr        while
+    while (${1})
+    {
+        ${2}
+    }
+
+########################################################
+snippet     for
+abbr        for
+    for (int ${1:idx}=0; idx<${2:cnt}; idx++)
+    {
+        ${3}
+    }
+
+########################################################
+snippet     foreach
+abbr        foreach
+    foreach(var ${1:items} in ${2:list})
+    {
+        ${3}
+    }
+
+########################################################
+snippet     main
+abbr        main program
+    class `expand('%:r')`
+    {
+        static void Main(string[] args)
+        {
+            System.Console.WriteLine(args.Length);
+            ${1}
+        }
+    }
+
+########################################################
 snippet     conv
 abbr        IValueConverter Class
     [ValueConversion(typeof(${1:From}), typeof(${2:To}))]
