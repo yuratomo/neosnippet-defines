@@ -1,4 +1,11 @@
-########################################################
+#------------------------------------------------------
+snippet     ///
+abbr        Comment
+    /**
+     * ${1}
+     */
+
+#---------------------------------------------
 snippet     prop
 abbr        Property
     /**
@@ -6,7 +13,7 @@ abbr        Property
      */
     public ${2:TYPE} ${1:NAME};
 
-########################################################
+#---------------------------------------------
 snippet     func
 abbr        Function
     /**
@@ -18,7 +25,7 @@ abbr        Function
     {
     }
 
-########################################################
+#---------------------------------------------
 snippet     class
 abbr        Class
     /**
@@ -34,28 +41,28 @@ abbr        Class
         }
     }
 
-########################################################
+#---------------------------------------------
 snippet     if
 abbr        if
     if (${1}) {
         ${2}
     }
 
-########################################################
+#---------------------------------------------
 snippet     while
 abbr        while
     while (${1}) {
         ${2}
     }
 
-########################################################
+#---------------------------------------------
 snippet     for
 abbr        for
     for (int ${1:idx}=0; idx<${2:cnt}; idx++) {
         ${3}
     }
 
-########################################################
+#---------------------------------------------
 snippet     main
 abbr        main program
     public class `expand('%:r')` {
@@ -66,7 +73,7 @@ abbr        main program
         }
     } 
 
-########################################################
+#---------------------------------------------
 snippet     singleton
 abbr        Singleton Class
     public class ${1:ClassName} {
@@ -88,7 +95,7 @@ abbr        Singleton Class
         }
     }
 
-########################################################
+#---------------------------------------------
 snippet     filewrite
 abbr        File Writer
 
@@ -104,7 +111,7 @@ abbr        File Writer
         }
     }
 
-########################################################
+#---------------------------------------------
 snippet     dirlist
 abbr        Directory List
     File dir = new File(${1:DirectoryPath});
@@ -118,18 +125,18 @@ abbr        Directory List
         }
     }
 
-########################################################
+#---------------------------------------------
 snippet     methodname
 abbr        Method Name
     String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-########################################################
+#---------------------------------------------
 snippet     str2date
 abbr        String to Date
     SimpleDateFormat format = new SimpleDateFormat( "dd.MM.yyyy" );
     Date date = format.parse( ${1:String} );
 
-########################################################
+#---------------------------------------------
 snippet     filecopy
 abbr        Fast file copy
     public static void fileCopy( File in, File out )
@@ -161,7 +168,7 @@ abbr        Fast file copy
     }
 
 
-########################################################
+#---------------------------------------------
 snippet     email
 abbr        Send e-mail
     import javax.mail.*;
@@ -203,7 +210,7 @@ abbr        Send e-mail
     }
 
 
-########################################################
+#---------------------------------------------
 snippet     http
 abbr        Send HTTP request & fetching data
     import java.io.BufferedReader;
@@ -220,7 +227,7 @@ abbr        Send HTTP request & fetching data
         ex.printStackTrace();
     }
 
-########################################################
+#---------------------------------------------
 snippet     servlet
 abbr        Http servlet
     import java.io.*;
