@@ -153,7 +153,6 @@ abbr        IValueConverter Class
 #---------------------------------------------
 snippet     cmd
 abbr        ICommand Class
-
     #region $1 Command
 
     /// <summary>
@@ -177,3 +176,46 @@ abbr        ICommand Class
     public ICommand $1Command { get; private set; }
 
     #endregion
+
+#---------------------------------------------
+snippet     notify
+abbr        INotifyPropertyChanged Class
+    public partial class ${1:ClassName} : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged =
+            (s, e) => { };
+
+        private void OnPropertyChanged(string name)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+    }
+
+#---------------------------------------------
+snippet     behavior
+abbr        Behavior Class
+    /// <summary>
+    /// $1 Behavior
+    /// </summary>
+    public class ${1:My}Behavior : Behavior<${2:UIElement}>
+    {
+        public Key Key { get; set; }
+
+        protected override void OnAttached()
+        {
+            this.AssociatedObject.PreviewKeyDown += AssociatedObject_KeyDown;
+        }
+
+        protected override void OnDetaching()
+        {
+            this.AssociatedObject.PreviewKeyDown -= AssociatedObject_KeyDown;
+        }
+
+        void AssociatedObject_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((Keyboard.Modifiers == ModifierKeys.None) && (e.Key == this.Key))
+            {
+                var element = e.OriginalSource as $2;
+            }
+        }
+    }
