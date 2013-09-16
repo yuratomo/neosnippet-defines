@@ -1,0 +1,87 @@
+#------------------------------------------------------
+snippet     ///
+abbr        Comment
+    :: $1
+
+#---------------------------------------------
+snippet     func
+abbr        subrutine
+    GOTO FUNC_END_$1
+    :${1:FuncName}
+    SET /A arg1=%1
+    SET /A arg2=%2
+    ::SET /A retval=num1+num2 $2
+    EXIT /B %retval%
+    :FUNC_END_$1
+
+#---------------------------------------------
+snippet     if
+abbr        if
+    IF ${1}
+    ) ELSE (
+    )
+
+#---------------------------------------------
+snippet     while
+abbr        while
+    SET /A ${1:IDX}=0
+    :LOOP_$1
+    $3
+    IF "%$1%" == "%${2:END}%" GOTO END_$1
+    SET /A $1+=1
+    GOTO LOOP_$1
+    :END_$1
+
+#---------------------------------------------
+snippet     for
+abbr        for
+    FOR /L %%i IN (1,1,3) DO @ECHO %i
+
+#---------------------------------------------
+snippet     forin
+abbr        for-in
+    FOR %%i IN (aaa bbb ccc) DO @ECHO %i
+
+#---------------------------------------------
+snippet     print
+abbr        echo
+    echo ${1}
+
+#---------------------------------------------
+snippet     main
+abbr        main program
+    @echo off
+    ${1}
+
+#---------------------------------------------
+snippet     echofile
+abbr        echo file path
+    ::     … ファイル名
+    ECHO %~0
+    ::     … フルパス
+    ECHO %~f0
+    ::     … ドライブ名
+    ECHO %~d0
+    ::     … パス名のみ
+    ECHO %~p0
+    ::     … ファイル名
+    ECHO %~n0
+    ::     … 拡張子
+    ECHO %~x0
+    ::     … 短い名前のみ
+    ECHO %~s0
+    ::     … ファイル属性
+    ECHO %~a0
+    ::     … ファイル日付
+    ECHO %~t0
+    ::     … ファイルサイズ
+    ECHO %~z0
+    ::    … ファイルの場所
+    ECHO %~dp0
+    ::    … ファイル名
+    ECHO %~nx0
+    ::    … 完全なパスと短い名前
+    ECHO %~fs0
+    ::  … 複合表示
+    ECHO %~ftza0
+

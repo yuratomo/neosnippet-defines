@@ -20,31 +20,31 @@ abbr        Any tag
 
 #------------------------------------------------------
 snippet     button
-abbr        [control] Button
+abbr        (control) Button
     <Button Command="{Binding ${1:CommandName}}" Content="${2:Caption}"/>${3}
 
 #------------------------------------------------------
 snippet     radio
-abbr        [control] RadioButton
+abbr        (control) RadioButton
     <RadioButton GroupName="${1:Name}" IsChecked="${2}" Content="${3}"/>${3}
 
 #------------------------------------------------------
 snippet     check
-abbr        [control] Checkbox
+abbr        (control) Checkbox
     <CheckBox IsChecked="${1}" Content="${2}"/>${3}
 
 #------------------------------------------------------
 snippet     border
-abbr        [control] Border
+abbr        (control) Border
     <Border 
       BorderThickness="${1:1,1,1,1}" 
       BorderBrush="${2:Black}" 
       CornerRadius="${3:3,3,3,3}" 
-      Background="${4:White}">
+      Background="${4:White}"/>
 
 #------------------------------------------------------
 snippet     datagrid
-abbr        [control] DataGrid
+abbr        (control) DataGrid
     <DataGrid AutoGenerateColumns="False">
       <DataGrid.Columns>
         <DataGridTextColumn     Header="item1" Binding="{Binding id}" />
@@ -65,17 +65,17 @@ abbr        [control] DataGrid
 
 #------------------------------------------------------
 snippet     list
-abbr        [control] ListBox
+abbr        (control) ListBox
     <ListBox SelectionMode="${1:Single}" ItemsSource="${2}"/>${3}
 
 #------------------------------------------------------
 snippet     combo
-abbr        [control] ComboBox
+abbr        (control) ComboBox
     <ComboBox ItemsSource="${1}"/>${2}
 
 #------------------------------------------------------
 snippet     slider
-abbr        [control] Slider
+abbr        (control) Slider
     <Slider 
       Minimum="0" Maximum="100" Value="50"
       SmallChange="1" LargeChange="10"
@@ -83,13 +83,13 @@ abbr        [control] Slider
 
 #------------------------------------------------------
 snippet     progress
-abbr        [control] ProgressBar
+abbr        (control) ProgressBar
     <ProgressBar
       Minimum="0" Maximum="100" Value="50"/>${1}
 
 #------------------------------------------------------
 snippet     toolbar
-abbr        [control] ToolBarTray and ToolBar
+abbr        (control) ToolBarTray and ToolBar
     <ToolBarTray>
       <ToolBar Band="1">${1}
       </ToolBar>
@@ -97,7 +97,7 @@ abbr        [control] ToolBarTray and ToolBar
 
 #------------------------------------------------------
 snippet     menu
-abbr        [control] Menu
+abbr        (control) Menu
     <Menu VerticalAlignment="Top">
       <MenuItem Header="${1}">
         <MenuItem Header="${2:MenuName}" Command="${3:CommandName}"/>
@@ -111,19 +111,19 @@ abbr        [control] Menu
 
 #------------------------------------------------------
 snippet     calendar
-abbr        [control] Calendar
+abbr        (control) Calendar
     <Calendar SelectionMode="${1:SingleDate}"/>
 
 
 #------------------------------------------------------
 snippet     canvas
-abbr        [panel] Canvas
+abbr        (panel) Canvas
     <Canvas>${1}
     </Canvas>
 
 #------------------------------------------------------
 snippet     grid
-abbr        [panel] Grid
+abbr        (panel) Grid
     <Grid>
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"/>
@@ -135,45 +135,45 @@ abbr        [panel] Grid
 
 #------------------------------------------------------
 snippet     gridsp
-abbr        [panel] GridSplitter
+abbr        (control) GridSplitter
     <GridSplitter ${1}/>
 
 #------------------------------------------------------
 snippet     stack
-abbr        [panel] StackPanel
+abbr        (panel) StackPanel
     <StackPanel ${1:Orientation="Horizontal"}>${2}
     </StackPanel>
 
 #------------------------------------------------------
 snippet     doc
-abbr        [panel] DocPanel
+abbr        (panel) DocPanel
     <DocPanel>${1}
     </DocPanel>
 
 #------------------------------------------------------
 snippet     wrap
-abbr        [panel] WrapPanel
+abbr        (panel) WrapPanel
     <StackPanel ${1:Orientation="Horizontal"}>${2}
     </StackPanel>
 
 #------------------------------------------------------
 snippet     uniform
-abbr        [panel] UniformGrid
+abbr        (panel) UniformGrid
     <UniformGrid Columns="${1}" Rows="${2}">${3}
     </UniformGrid>
 
 #------------------------------------------------------
 snippet     status
-abbr        [panel] StatusBar
+abbr        (panel) StatusBar
     <StatusBar>
-      <StatusBarItem DockPanel.Dock="Left">${1
+      <StatusBarItem DockPanel.Dock="Left">${1}
       </StatusBarItem>
       <Separator     DockPanel.Dock="Left"/>
     </StatusBar>
 
 #------------------------------------------------------
 snippet     tree
-abbr        [panel] TreeView
+abbr        (panel) TreeView
     <TreeView ItemsSource="${1:Source}">
       <TreeView.ItemTemplate>
         <HierarchicalDataTemplate ItemsSource="{Binding Children}">
@@ -184,7 +184,7 @@ abbr        [panel] TreeView
 
 #------------------------------------------------------
 snippet     scroll
-abbr        [panel] ScrollViewer
+abbr        (panel) ScrollViewer
     <ScrollViewer
       VerticalScrollBarVisibility="Auto"
       HorizontalScrollBarVisibility="Auto"
@@ -193,14 +193,14 @@ abbr        [panel] ScrollViewer
 
 #------------------------------------------------------
 snippet     tab
-abbr        [control] TabControl
+abbr        (control) TabControl
     <TabControl>
       <TabItem Header="${1}">
     </TabControl>
 
 #------------------------------------------------------
 snippet     viewbox
-abbr        [control] Viewbox
+abbr        (control) Viewbox
     <Viewbox Stretch="${1:Uniform}">${2}
     </Viewbox>
 
@@ -218,12 +218,12 @@ abbr        Window
 
 #------------------------------------------------------
 snippet     solid
-abbr        [brush] SolidColorBrush
+abbr        (brush) SolidColorBrush
     <SolidColorBrush x:Key="${1:BrushName}" Color="${2:#FFFFFF}"/>
 
 #------------------------------------------------------
 snippet     linear
-abbr        [brush] LinearGradientBrush
+abbr        (brush) LinearGradientBrush
     <LinearGradientBrush x:Key="${1:BrushName}"
       StartPoint="0,0" EndPoint="1,1">
       <GradientStop Color="Yellow"    Offset="0.0" />
@@ -234,7 +234,7 @@ abbr        [brush] LinearGradientBrush
 
 #------------------------------------------------------
 snippet     radial
-abbr        [brush] RadialGradientBrush
+abbr        (brush) RadialGradientBrush
     <RadialGradientBrush x:Key="${1:BrushName}"
       GradientOrigin="0.5,0.5" Center="0.5,0.5" 
       RadiusX="0.5" RadiusY="0.5">
@@ -246,14 +246,8 @@ abbr        [brush] RadialGradientBrush
 
 #------------------------------------------------------
 snippet     imagebrush
-abbr        [brush] ImageBrush
+abbr        (brush) ImageBrush
     <ImageBrush ImageSource="${1}"  />${2}
-
-
-#------------------------------------------------------
-snippet     static
-abbr        StaticResource
-    {StaticResource ${1}}"
 
 #------------------------------------------------------
 snippet     style
@@ -270,19 +264,19 @@ abbr        Setter
 
 #------------------------------------------------------
 snippet     trigger
-abbr        [trigger] trigger
+abbr        (trigger) trigger
     <Trigger Property="${1:IsMouseOver}" Value="${2:True}">${2}
     </Trigger>
 
 #------------------------------------------------------
 snippet     datatrigger
-abbr        [trigger] DataTrigger
+abbr        (trigger) DataTrigger
     <DataTrigger Binding="{Binding ${1}}" Value="True">${2}
     </DataTrigger>
 
 #------------------------------------------------------
 snippet     eventtrigger
-abbr        [trigger] DataTrigger
+abbr        (trigger) DataTrigger
     <EventTrigger RoutedEvent="${1:Event}">
       <EventTrigger.Actions>
         <BeginStoryboard>
@@ -321,7 +315,7 @@ abbr        StoryBoard
 
 #------------------------------------------------------
 snippet     doubleanim
-abbr        [animation] DoubleAnimation
+abbr        (animation) DoubleAnimation
     <DoubleAnimation 
        Storyboard.TargetName="${1:Target}"
        Storyboard.TargetProperty="Width"
@@ -329,7 +323,7 @@ abbr        [animation] DoubleAnimation
 
 #------------------------------------------------------
 snippet     coloranim
-abbr        [animation] ColorAnimation
+abbr        (animation) ColorAnimation
     <ColorAnimation
        Storyboard.TargetName="${1:Target}"
        Storyboard.TargetProperty="Fill.Color"
@@ -338,7 +332,7 @@ abbr        [animation] ColorAnimation
 
 #------------------------------------------------------
 snippet     thickanim
-abbr        [animation] ThicknessAnimation
+abbr        (animation) ThicknessAnimation
     <ThicknessAnimation
        Storyboard.TargetName="${1:Target}"
        Storyboard.TargetProperty="BorderThickness"
@@ -347,7 +341,7 @@ abbr        [animation] ThicknessAnimation
 
 #------------------------------------------------------
 snippet     doubleframes
-abbr        [animation] DoubleAnimationUsingKeyFrames
+abbr        (animation) DoubleAnimationUsingKeyFrames
     <DoubleAnimationUsingKeyFrames
        Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"
        Storyboard.TargetName="ellipse">
@@ -355,22 +349,22 @@ abbr        [animation] DoubleAnimationUsingKeyFrames
 
 #------------------------------------------------------
 snippet     lineard
-abbr        [animation] LinearDoubleKeyFrame
+abbr        (animation) LinearDoubleKeyFrame
     <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
 
 #------------------------------------------------------
 snippet     splined
-abbr        [animation] SplineDoubleKeyFrame
+abbr        (animation) SplineDoubleKeyFrame
     <SplineDoubleKeyFrame KeySpline="0,1 1,0" Value="200" KeyTime="0:0:0"/>
 
 #------------------------------------------------------
 snippet     discreted
-abbr        [animation] DiscreteDoubleKeyFrame
+abbr        (animation) DiscreteDoubleKeyFrame
     <DiscreteDoubleKeyFrame Value="0" KeyTime="0:0:0" />
 
 #------------------------------------------------------
 snippet     easingd
-abbr        [animation] EasingDoubleKeyFrame
+abbr        (animation) EasingDoubleKeyFrame
     <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-0">
       <EasingDoubleKeyFrame.EasingFunction>
         <!-- 指定されたアニメーションを開始する直前に、逆の動きを指定 -->
@@ -398,19 +392,19 @@ abbr        [animation] EasingDoubleKeyFrame
 
 #------------------------------------------------------
 snippet     behavior
-abbr        [behavior] Interaction.Behaviors
+abbr        (behavior) Interaction.Behaviors
     <i:Interaction.Behaviors>
       <l:${1:My}Behavior/>
     </i:Interaction.Behaviors>
 
 #------------------------------------------------------
 snippet     fluid
-abbr        [behavior] FluidMoveBehavior
+abbr        (behavior) FluidMoveBehavior
     <ei:FluidMoveBehavior AppliesTo="Children" Tag="DataContext"/>
 
 #------------------------------------------------------
 snippet     visual
-abbr        [behavior] VisualStateManager
+abbr        (behavior) VisualStateManager
     <VisualStateManager.VisualStateGroups>
       <VisualStateGroup>
         <!-- http://msdn.microsoft.com/ja-jp/library/aa970773.aspx -->
@@ -448,4 +442,16 @@ abbr        [behavior] VisualStateManager
         </VisualState>
       </VisualStateGroup>
     </VisualStateManager.VisualStateGroups>
+
+#------------------------------------------------------
+snippet     main
+abbr        (tempate) Window
+    <Window
+        x:Class="`expand('%:r')"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="${1}" SizeToContent="WidthAndHeight">
+        <Window.Resources>
+        </Window.Resources>${2}
+    </Window>
 

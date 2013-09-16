@@ -1,0 +1,147 @@
+#------------------------------------------------------
+snippet     ///
+abbr        Comment
+    /**
+     * ${1}
+     */
+
+#---------------------------------------------
+snippet     func
+abbr        Function
+    /**
+     * ${4}
+     * @param  $3    
+     * @retval ${5}
+     */
+    function ${1:FuncName}( ${2:ParamType} ${3:ParamName} )
+    {
+    }
+
+#---------------------------------------------
+snippet     if
+abbr        if
+    if (${1}) {
+        ${2}
+    }
+
+#---------------------------------------------
+snippet     while
+abbr        while
+    while (${1}) {
+        ${2}
+    }
+
+#---------------------------------------------
+snippet     for
+abbr        for
+    for (${1:idx}=0; idx<${2:cnt}; idx++) {
+        ${3}
+    }
+
+#---------------------------------------------
+snippet     foreach
+abbr        foreach
+    foreach (${1:array} as ${2:$key => }$val) {
+        ${3}
+    }
+
+#---------------------------------------------
+snippet     main
+abbr        main program
+    <?php${1}
+    ?>
+
+#---------------------------------------------
+snippet     post
+abbr        (global) $_POST[xxx]
+    $_POST[${1:key}]${2}
+
+#---------------------------------------------
+snippet     get
+abbr        (global) $_GET[xxx]
+    $_GET[${1:key}]${2}
+
+#---------------------------------------------
+snippet     cookie
+abbr        (global) $_COOKIE[xxx]
+    $_COOKIE[${1:key}]${2}
+
+#---------------------------------------------
+snippet     req
+abbr        (global) $_REQUEST[xxx]
+    $_REQUEST[${1:key}]${2}
+
+#---------------------------------------------
+snippet     server
+abbr        (global) $_SERVER[xxx]
+    $_SERVER[${1:key}]${2}
+
+#---------------------------------------------
+snippet     session
+abbr        (global) $_SESSION[xxx]
+    $_SESSION[${1:key}]${2}
+
+#---------------------------------------------
+snippet     env
+abbr        (global) $_ENV[xxx]
+    $_ENV[${1:key}]${2}
+
+#---------------------------------------------
+snippet     filewrite
+abbr        (sample) File Writer
+    $file = fopen(${1:"FilePath"}, "w") or exit("Unable to open file!");;
+    if (!is_resource($file)) {
+        die("can't open file");
+    }
+    fputs($file, $buff);
+    fclose($file);
+
+#---------------------------------------------
+snippet     fileread
+abbr        (sample) File Writer
+    $file = fopen(${1:"FilePath"}, "r") or exit("Unable to open file!");;
+    while(!feof($file))
+    {
+        echo fgets($file). "<br />";
+    }
+    fclose($file);
+
+#---------------------------------------------
+snippet     dirlist
+abbr        (sample) Directory List
+    $dir = opendir(${1:"Path"});
+    while (($file = readdir($dir)) !== false)
+    {
+      echo "filename: " . $file . "<br />";
+    }
+    closedir($dir);
+
+#---------------------------------------------
+snippet     upfile
+abbr        (sample) Upload File
+    $updir = "./upload/";
+    $filename = $_FILES['upfile']['name'];
+    if(move_uploaded_file($_FILES['upfile']['tmp_name'], $updir.$filename)==FALSE){
+      print("Upload failed");
+      print($_FILES['upfile']['error']);
+    }
+
+#---------------------------------------------
+snippet     mysql
+abbr        (sample) mysql
+    $con = mysql_connect(${1:"localhost"},${2:"user"},${3:"pass"});
+    if (!$con)
+    {
+      die('Could not connect: ' . mysql_error());
+    }
+
+    mysql_select_db(${4:"db"}, $con);
+    $result = mysql_query("SELECT * FROM ${5:table}");
+    while($row = mysql_fetch_array($result))
+    {
+      echo $row['row1'] . " " . $row['row2'];
+      echo "<br />";
+    }
+
+    mysql_close($con);
+

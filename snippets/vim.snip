@@ -1,0 +1,29 @@
+#------------------------------------------------------
+snippet     ///
+abbr        Comment
+    " $1
+
+#---------------------------------------------
+snippet     func
+abbr        Function
+    func! ${1:FuncName}( ${2:arg} )
+    endfunc
+
+#---------------------------------------------
+snippet     if
+abbr        if
+    if ${1}
+    endif
+
+#---------------------------------------------
+snippet     while
+abbr        while
+    while ${1}
+    endwhile
+
+#---------------------------------------------
+snippet     for
+abbr        for
+    for ${1} in ${2}
+    endfor
+

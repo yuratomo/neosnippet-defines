@@ -116,6 +116,31 @@ abbr        foreach
     }
 
 #---------------------------------------------
+snippet     try
+abbr        try catch finally
+    try
+    {${1}
+    }
+    catch (Exception e)
+    {
+    }
+    finally
+    {
+    }
+
+#---------------------------------------------
+snippet     using
+abbr        Using
+    using (${1:Class} ${2} = new $1())
+    {
+    }
+  
+#---------------------------------------------
+snippet     print
+abbr        System.out.print
+    System.Console.WriteLine( ${1} );
+
+#---------------------------------------------
 snippet     main
 abbr        main program
     class `expand('%:r')`
@@ -129,7 +154,7 @@ abbr        main program
 
 #---------------------------------------------
 snippet     conv
-abbr        IValueConverter Class
+abbr        (template) IValueConverter Class
     [ValueConversion(typeof(${1:From}), typeof(${2:To}))]
     public class $1Converter : IValueConverter
     {
@@ -152,7 +177,7 @@ abbr        IValueConverter Class
 
 #---------------------------------------------
 snippet     cmd
-abbr        ICommand Class
+abbr        (template) ICommand Class
     #region $1 Command
 
     /// <summary>
@@ -179,7 +204,7 @@ abbr        ICommand Class
 
 #---------------------------------------------
 snippet     notify
-abbr        INotifyPropertyChanged Class
+abbr        (template) INotifyPropertyChanged Class
     public partial class ${1:ClassName} : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged =
@@ -193,7 +218,7 @@ abbr        INotifyPropertyChanged Class
 
 #---------------------------------------------
 snippet     behavior
-abbr        Behavior Class
+abbr        (template) Behavior Class
     /// <summary>
     /// $1 Behavior
     /// </summary>
@@ -219,3 +244,4 @@ abbr        Behavior Class
             }
         }
     }
+

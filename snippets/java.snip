@@ -3,7 +3,7 @@ snippet     ///
 abbr        Comment
     /**
      * ${1}
-     */
+     */${2}
 
 #---------------------------------------------
 snippet     prop
@@ -63,6 +63,18 @@ abbr        for
     }
 
 #---------------------------------------------
+snippet     foreach
+abbr        foreach
+    for (Object ${1} : ${2}) {
+        ${3}
+    }
+
+#---------------------------------------------
+snippet     print
+abbr        System.out.print
+    System.out.println( ${1} );
+
+#---------------------------------------------
 snippet     main
 abbr        main program
     public class `expand('%:r')` {
@@ -75,8 +87,9 @@ abbr        main program
 
 #---------------------------------------------
 snippet     singleton
-abbr        Singleton Class
-    public class ${1:ClassName} {
+abbr        (template) Singleton Class
+    public class ${1:ClassName}
+    {
         private static $1 _instance =  new $1();
 
         /**
@@ -96,15 +109,57 @@ abbr        Singleton Class
     }
 
 #---------------------------------------------
+snippet     iterable
+abbr        (template) Iterable Class
+    public class ${1:ClassName} implements Iterable<${2:Type}> , java.util.Iterator<$2>
+    {
+        /**
+         * Constructor
+         */
+        public $1()
+        {
+        }
+
+        /**
+         * Returns an iterator over a set of elements of type $2.
+         */
+        public java.util.Iterator<$2> iterator() {
+            return this;
+        }
+
+        /**
+         * Returns true if the iteration has more elements.
+         */
+        public boolean hasNext()
+        {
+            return false;
+        }
+
+        /**
+         * Returns the next element in the iteration.
+         */
+        public $2 next()
+        {
+            return null;
+        }
+
+        /**
+         * Removes from the underlying collection the last element returned by this iterator (optional operation).
+         */
+        public void remove()
+        {
+        } 
+    }
+
+#---------------------------------------------
 snippet     filewrite
-abbr        File Writer
+abbr        (snippet) File Writer
 
     BufferedWriter out = null;
     try {
         out = new BufferedWriter(new FileWriter(${1:FilePath}, true));
         out.write(${2:WriteString}});
     } catch (IOException e) {
-        // error processing code
     } finally {
         if (out != null) {
             out.close();
@@ -113,7 +168,7 @@ abbr        File Writer
 
 #---------------------------------------------
 snippet     dirlist
-abbr        Directory List
+abbr        (snippet) Directory List
     File dir = new File(${1:DirectoryPath});
     String[] dirItems = dir.list();
     if (dirItems == null) {
@@ -127,18 +182,18 @@ abbr        Directory List
 
 #---------------------------------------------
 snippet     methodname
-abbr        Method Name
+abbr        (snippet) Method Name
     String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 #---------------------------------------------
 snippet     str2date
-abbr        String to Date
+abbr        (snippet) String to Date
     SimpleDateFormat format = new SimpleDateFormat( "dd.MM.yyyy" );
     Date date = format.parse( ${1:String} );
 
 #---------------------------------------------
 snippet     filecopy
-abbr        Fast file copy
+abbr        (sample) Fast file copy
     public static void fileCopy( File in, File out )
             throws IOException
     {
@@ -170,7 +225,7 @@ abbr        Fast file copy
 
 #---------------------------------------------
 snippet     email
-abbr        Send e-mail
+abbr        (sample) Send e-mail
     import javax.mail.*;
     import javax.mail.internet.*;
     import java.util.*;
@@ -212,7 +267,7 @@ abbr        Send e-mail
 
 #---------------------------------------------
 snippet     http
-abbr        Send HTTP request & fetching data
+abbr        (sample) Send HTTP request & fetching data
     import java.io.BufferedReader;
     import java.io.InputStreamReader;
     import java.net.URL;
@@ -229,12 +284,13 @@ abbr        Send HTTP request & fetching data
 
 #---------------------------------------------
 snippet     servlet
-abbr        Http servlet
+abbr        (template) Http servlet
     import java.io.*;
     import javax.servlet.*;
     import javax.servlet.http.*;
 
-    public class ${1:Name} extends HttpServlet {
+    public class ${1:Name} extends HttpServlet
+    {
         /**
          * GET
          */
@@ -244,9 +300,9 @@ abbr        Http servlet
             String val = request.getParameter("key1");
             String vals[] = request.getParameterValues("key2");
             if (vals != null){
-              for (int idx=0 ; idx<vals.length; idx++){
-                out.println(vals[idx]);
-              }
+                for (int idx=0 ; idx<vals.length; idx++){
+                    out.println(vals[idx]);
+                }
             }
         }
 
