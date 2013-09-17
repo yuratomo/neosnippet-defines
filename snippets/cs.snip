@@ -147,8 +147,28 @@ abbr        main program
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine(args.Length);
-            ${1}
+            System.Console.WriteLine(args.Length);${1}
+        }
+    }
+
+#---------------------------------------------
+snippet     app
+abbr        (template) Application
+    class `expand('%:r')` : Application
+    {${1}
+    }
+
+#---------------------------------------------
+snippet     control
+abbr        (tempate) UserControl
+    /// <summary>
+    /// ${2}
+    /// </summary>
+    public partial class ${1:MyControl} : UserControl
+    {
+        public $1()
+        {
+            InitializeComponent()
         }
     }
 
@@ -205,6 +225,9 @@ abbr        (template) ICommand Class
 #---------------------------------------------
 snippet     notify
 abbr        (template) INotifyPropertyChanged Class
+    /// <summary>
+    /// ${2}
+    /// </summary>
     public partial class ${1:ClassName} : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged =
