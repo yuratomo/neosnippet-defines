@@ -5,11 +5,11 @@ if exists('g:loaded_neosnippet_defines') && g:loaded_neosnippet_defines == 1
   finish
 endif
 
-function! neosnippet#Complete(findstart, base)
+function! neosnippet#complete(findstart, base)
   if a:findstart
     let line = getline('.')
     let start = col('.') - 1
-    while start > 0 && line[start - 1] =~ '\a'
+    while start > 0 && line[start - 1] =~ '[a-zA-Z_]'
       let start -= 1
     endwhile
     return start
