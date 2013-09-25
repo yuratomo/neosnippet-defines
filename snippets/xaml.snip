@@ -440,7 +440,7 @@ abbr        (behavior) VisualState
 #------------------------------------------------------
 snippet     vs_normal
 abbr        (behavior) VisualState Normal
-    <VisualState Name="Normal">
+    <VisualState x:Name="Normal">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -449,7 +449,7 @@ abbr        (behavior) VisualState Normal
 #------------------------------------------------------
 snippet     vs_readonly
 abbr        (behavior) VisualState ReadOnly
-    <VisualState Name="ReadOnly">
+    <VisualState x:Name="ReadOnly">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -458,7 +458,7 @@ abbr        (behavior) VisualState ReadOnly
 #------------------------------------------------------
 snippet     vs_mouseover
 abbr        (behavior) VisualState MouseOver
-    <VisualState Name="MouseOver">
+    <VisualState x:Name="MouseOver">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -467,7 +467,7 @@ abbr        (behavior) VisualState MouseOver
 #------------------------------------------------------
 snippet     vs_pressed
 abbr        (behavior) VisualState Pressed
-    <VisualState Name="Pressed">
+    <VisualState x:Name="Pressed">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -476,7 +476,7 @@ abbr        (behavior) VisualState Pressed
 #------------------------------------------------------
 snippet     vs_disabled
 abbr        (behavior) VisualState Disabled
-    <VisualState Name="Disabled">
+    <VisualState x:Name="Disabled">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -485,7 +485,7 @@ abbr        (behavior) VisualState Disabled
 #------------------------------------------------------
 snippet     vs_focused
 abbr        (behavior) VisualState Focused
-    <VisualState Name="Focused">
+    <VisualState x:Name="Focused">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -494,7 +494,7 @@ abbr        (behavior) VisualState Focused
 #------------------------------------------------------
 snippet     vs_unfocused
 abbr        (behavior) VisualState Unfocused
-    <VisualState Name="Unfocused">
+    <VisualState x:Name="Unfocused">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -503,7 +503,7 @@ abbr        (behavior) VisualState Unfocused
 #------------------------------------------------------
 snippet     vs_focuseddropdown
 abbr        (behavior) VisualState FocusedDropDown
-    <VisualState Name="FocusedDropDown">
+    <VisualState x:Name="FocusedDropDown">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -512,7 +512,7 @@ abbr        (behavior) VisualState FocusedDropDown
 #------------------------------------------------------
 snippet     vs_valid
 abbr        (behavior) VisualState Valid
-    <VisualState Name="Valid">
+    <VisualState x:Name="Valid">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -521,7 +521,7 @@ abbr        (behavior) VisualState Valid
 #------------------------------------------------------
 snippet     vs_invalidFocused
 abbr        (behavior) VisualState InvalidFocused
-    <VisualState Name="InvalidFocused">
+    <VisualState x:Name="InvalidFocused">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -530,7 +530,7 @@ abbr        (behavior) VisualState InvalidFocused
 #------------------------------------------------------
 snippet     vs_invalidUnfocused
 abbr        (behavior) VisualState InvalidUnfocused
-    <VisualState Name="InvalidUnfocused">
+    <VisualState x:Name="InvalidUnfocused">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -539,7 +539,7 @@ abbr        (behavior) VisualState InvalidUnfocused
 #------------------------------------------------------
 snippet     vs_checked
 abbr        (behavior) VisualState Checked
-    <VisualState Name="Checked">
+    <VisualState x:Name="Checked">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -548,7 +548,7 @@ abbr        (behavior) VisualState Checked
 #------------------------------------------------------
 snippet     vs_unchecked
 abbr        (behavior) VisualState Unchecked
-    <VisualState Name="Unchecked">
+    <VisualState x:Name="Unchecked">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -557,7 +557,7 @@ abbr        (behavior) VisualState Unchecked
 #------------------------------------------------------
 snippet     vs_editable
 abbr        (behavior) VisualState Editable
-    <VisualState Name="Editable">
+    <VisualState x:Name="Editable">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -566,7 +566,7 @@ abbr        (behavior) VisualState Editable
 #------------------------------------------------------
 snippet     vs_uneditable
 abbr        (behavior) VisualState Uneditable
-    <VisualState Name="Uneditable">
+    <VisualState x:Name="Uneditable">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -575,7 +575,7 @@ abbr        (behavior) VisualState Uneditable
 #------------------------------------------------------
 snippet     vs_selected
 abbr        (behavior) VisualState Selected
-    <VisualState Name="Selected">
+    <VisualState x:Name="Selected">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -584,7 +584,7 @@ abbr        (behavior) VisualState Selected
 #------------------------------------------------------
 snippet     vs_unselected
 abbr        (behavior) VisualState Unselected
-    <VisualState Name="Unselected">
+    <VisualState x:Name="Unselected">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -593,7 +593,7 @@ abbr        (behavior) VisualState Unselected
 #------------------------------------------------------
 snippet     vs_selectedunfocused
 abbr        (behavior) VisualState SelectedUnfocused <ListBoxItem, ListViewItem>
-    <VisualState Name="SelectedUnfocused">
+    <VisualState x:Name="SelectedUnfocused">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -602,7 +602,7 @@ abbr        (behavior) VisualState SelectedUnfocused <ListBoxItem, ListViewItem>
 #------------------------------------------------------
 snippet     vs_determinate
 abbr        (behavior) VisualState Determinate <ProgressBar>
-    <VisualState Name="Determinate">
+    <VisualState x:Name="Determinate">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -611,7 +611,7 @@ abbr        (behavior) VisualState Determinate <ProgressBar>
 #------------------------------------------------------
 snippet     vs_indeterminate
 abbr        (behavior) VisualState Indeterminate <ProgressBar>
-    <VisualState Name="Indeterminate">
+    <VisualState x:Name="Indeterminate">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -620,7 +620,7 @@ abbr        (behavior) VisualState Indeterminate <ProgressBar>
 #------------------------------------------------------
 snippet     vs_open
 abbr        (behavior) VisualState Open <ToolTip>
-    <VisualState Name="Open">
+    <VisualState x:Name="Open">
         <Storyboard>
             ani_${1}
         </Storyboard>
@@ -629,7 +629,7 @@ abbr        (behavior) VisualState Open <ToolTip>
 #------------------------------------------------------
 snippet     vs_closed
 abbr        (behavior) VisualState Closed <ToolTip>
-    <VisualState Name="Closed">
+    <VisualState x:Name="Closed">
         <Storyboard>
             ani_${1}
         </Storyboard>
