@@ -1,27 +1,47 @@
 #------------------------------------------------------
 snippet     ///
-abbr        Comment
+abbr        (@common)Comment
     <!-- ${1} -->
 
 #------------------------------------------------------
 snippet     2006
-abbr        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+abbr        (@common)xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 
 #------------------------------------------------------
 snippet     2006x
-abbr        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+abbr        (@common)xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 
 #------------------------------------------------------
-snippet     tag
-abbr        Any tag
+snippet     clr
+abbr        (@common)xmlns:___=cls-namespace:___;assembly=___
+    xmlns:${1:myns}="clr-namespace:${2:Namespace}{$3:;assembly=MyLibAssembly}"
+
+#------------------------------------------------------
+snippet     <
+abbr        (@common)<___></___>
     <${1:TagName}>${2}</$1>
+
+#------------------------------------------------------
+snippet     text
+abbr        (control) TextBlock
+    <TextBlock Text="${1:Text}"/>
+
+#------------------------------------------------------
+snippet     rich
+abbr        (control) RichTextBox
+    <RichTextBox Text="${1:Text}"/>
+
+#------------------------------------------------------
+snippet     textbox
+abbr        (control) TextBox
+    <TextBox Text="${1:Text}"/>
 
 #------------------------------------------------------
 snippet     button
 abbr        (control) Button
-    <Button Command="{Binding ${1:CommandName}}" Content="${2:Caption}"/>${3}
+    <Button Command="{Binding ${1:CommandName}}"/>${2}
 
 #------------------------------------------------------
 snippet     radio
@@ -35,12 +55,37 @@ abbr        (control) Checkbox
 
 #------------------------------------------------------
 snippet     border
-abbr        (control) Border
+abbr        (parts) Border
     <Border 
       BorderThickness="${1:1,1,1,1}" 
       BorderBrush="${2:Black}" 
       CornerRadius="${3:3,3,3,3}" 
       Background="${4:White}"/>
+
+#------------------------------------------------------
+snippet     bullet
+abbr        (parts)BulletDecorator
+    <BulletDecorator/>
+
+#------------------------------------------------------
+snippet     resize
+abbr        (parts)ResizeGrip
+    <ResizeGrip/>
+
+#------------------------------------------------------
+snippet     repeat
+abbr        (parts)RepeatButton
+    <RepeatButton/>
+
+#------------------------------------------------------
+snippet     scrollbar
+abbr        (parts)ScrollBar
+    <ScrollBar/>
+
+#------------------------------------------------------
+snippet     thumb
+abbr        (parts)Thumb
+    <Thumb/>
 
 #------------------------------------------------------
 snippet     datagrid
@@ -64,6 +109,17 @@ abbr        (control) DataGrid
     </DataGrid>
 
 #------------------------------------------------------
+snippet     datapick
+abbr        (control) DataPicker
+    <DatePicker DisplayDateStart="${1:2000/01/01}" DisplayDateEnd="${2:2099/12/31}"/>
+
+#------------------------------------------------------
+snippet     expander
+abbr        (control) Expander
+    <Expander Header="${1}" ExpandDirection="${2:Right}">${3}
+    </Expander>
+
+#------------------------------------------------------
 snippet     list
 abbr        (control) ListBox
     <ListBox SelectionMode="${1:Single}" ItemsSource="${2}"/>${3}
@@ -82,10 +138,20 @@ abbr        (control) Slider
       TickPlacement="BottomRight"/>${1}
 
 #------------------------------------------------------
+snippet     password
+abbr        (control) PasswordBox
+    <PasswordBox Password="${1}" PasswordChar="*"/> 
+
+#------------------------------------------------------
 snippet     progress
 abbr        (control) ProgressBar
     <ProgressBar
       Minimum="0" Maximum="100" Value="50"/>${1}
+
+#------------------------------------------------------
+snippet     toggle
+abbr        (control) ToggleButton
+    <ToggleButton Content="${1}"/>
 
 #------------------------------------------------------
 snippet     toolbar
@@ -148,9 +214,26 @@ abbr        (panel) Grid.ColumnDefinitions
     </Grid.ColumnDefinitions>
 
 #------------------------------------------------------
+snippet     Popup
+abbr        (panel) Popup
+    <Popup PopupAnimation="${1:Fade}">${2}
+    </Popup>
+
+#------------------------------------------------------
 snippet     gridsp
 abbr        (control) GridSplitter
     <GridSplitter ${1}/>
+
+#------------------------------------------------------
+snippet     groupbox
+abbr        (panel) GroupBox
+    <GroupBox Header="${1}">${2}
+    </GroupBox>
+
+#------------------------------------------------------
+snippet     image
+abbr        (control) Image
+    <Image source="${1}"/>
 
 #------------------------------------------------------
 snippet     stack
@@ -160,9 +243,9 @@ abbr        (panel) StackPanel
 
 #------------------------------------------------------
 snippet     doc
-abbr        (panel) DocPanel
-    <DocPanel>${1}
-    </DocPanel>
+abbr        (panel) DockPanel
+    <DockPanel>${1}
+    </DockPanel>
 
 #------------------------------------------------------
 snippet     wrap
@@ -214,13 +297,13 @@ abbr        (control) TabControl
 
 #------------------------------------------------------
 snippet     viewbox
-abbr        (control) Viewbox
-    <Viewbox Stretch="${1:Uniform}">${2}
-    </Viewbox>
+abbr        (control) ViewBox
+    <ViewBox Stretch="${1:Uniform}">${2}
+    </ViewBox>
 
 #------------------------------------------------------
 snippet     window
-abbr        Window
+abbr        (@template)Window
     <Window x:Class="`expand('%:r')"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -229,11 +312,41 @@ abbr        Window
       </Window.Resources>${2}
     </Window>
 
+#------------------------------------------------------
+snippet     page
+abbr        (@template)Page
+    <Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="${1}">
+      <Page.Resources>
+      </Page.Resources>${2}
+    </Page>
 
 #------------------------------------------------------
 snippet     solid
 abbr        (brush) SolidColorBrush
     <SolidColorBrush x:Key="${1:BrushName}" Color="${2:#FFFFFF}"/>
+
+#------------------------------------------------------
+snippet     drawing
+abbr        (brush) DrawingBrush
+    <DrawingBrush Viewport="0,0,0.25,0.25" TileMode="Tile">
+      <DrawingBrush.Drawing>
+        <DrawingGroup>
+          <GeometryDrawing Brush="White">
+            <GeometryDrawing.Geometry>
+              <RectangleGeometry Rect="0,0,100,100" />
+            </GeometryDrawing.Geometry>
+          </GeometryDrawing>
+        </DrawingGroup>
+      </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+#------------------------------------------------------
+snippet     visualbrush
+abbr        (brush) VisualBrush
+    <VisualBrush TileMode="${1:None}" Visual="{Binding ElementName=${2}}"/>
 
 #------------------------------------------------------
 snippet     linear
@@ -265,7 +378,7 @@ abbr        (brush) ImageBrush
 
 #------------------------------------------------------
 snippet     style
-abbr        Style
+abbr        (style)Style
     <Style  x:Key="${1}" TargetType="${2}">
       <Style.Triggers>
       </Style.Triggers>
@@ -274,7 +387,7 @@ abbr        Style
 
 #------------------------------------------------------
 snippet     setter
-abbr        Setter
+abbr        (style)Setter
     <Setter Property="${1}" Value="${2}"/>${3}
 
 #------------------------------------------------------
@@ -304,7 +417,7 @@ abbr        (trigger) DataTrigger
 
 #------------------------------------------------------
 snippet     template
-abbr        ControlTemplate
+abbr        (@template)ControlTemplate
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="${1}">
@@ -324,8 +437,13 @@ abbr        ControlTemplate
     </Setter>
 
 #------------------------------------------------------
+snippet     datatemplate
+abbr        (@template)DataTemplate
+    <DataTemplate DataType="{x:Type exp:${1}}">
+
+#------------------------------------------------------
 snippet     story
-abbr        StoryBoard
+abbr        (style)StoryBoard
     <Storyboard x:Key="${1:Name}">
         ani_${1}
     </Storyboard>
@@ -376,7 +494,7 @@ abbr        (animation) SplineDoubleKeyFrame
     <SplineDoubleKeyFrame KeySpline="0,1 1,0" Value="200" KeyTime="0:0:0"/>
 
 #------------------------------------------------------
-snippet     frame_discrete
+snippet     frame_disc
 abbr        (animation) DiscreteDoubleKeyFrame
     <DiscreteDoubleKeyFrame Value="0" KeyTime="0:0:0" />
 
@@ -601,7 +719,7 @@ abbr        (behavior) VisualState SelectedUnfocused <ListBoxItem, ListViewItem>
 
 #------------------------------------------------------
 snippet     vs_determinate
-abbr        (behavior) VisualState Determinate <ProgressBar>
+abbr        (behavior) VisualState Determinate
     <VisualState x:Name="Determinate">
         <Storyboard>
             ani_${1}
@@ -610,7 +728,7 @@ abbr        (behavior) VisualState Determinate <ProgressBar>
     
 #------------------------------------------------------
 snippet     vs_indeterminate
-abbr        (behavior) VisualState Indeterminate <ProgressBar>
+abbr        (behavior) VisualState Indeterminate
     <VisualState x:Name="Indeterminate">
         <Storyboard>
             ani_${1}
@@ -619,7 +737,7 @@ abbr        (behavior) VisualState Indeterminate <ProgressBar>
 
 #------------------------------------------------------
 snippet     vs_open
-abbr        (behavior) VisualState Open <ToolTip>
+abbr        (behavior) VisualState Open
     <VisualState x:Name="Open">
         <Storyboard>
             ani_${1}
@@ -628,7 +746,7 @@ abbr        (behavior) VisualState Open <ToolTip>
 
 #------------------------------------------------------
 snippet     vs_closed
-abbr        (behavior) VisualState Closed <ToolTip>
+abbr        (behavior) VisualState Closed
     <VisualState x:Name="Closed">
         <Storyboard>
             ani_${1}
@@ -637,7 +755,7 @@ abbr        (behavior) VisualState Closed <ToolTip>
 
 #------------------------------------------------------
 snippet     main
-abbr        (tempate) Window
+abbr        (@tempate) Window
     <Window
         x:Class="`expand('%:r')"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -649,7 +767,7 @@ abbr        (tempate) Window
 
 #------------------------------------------------------
 snippet     app
-abbr        (tempate) Application
+abbr        (@tempate) Application
     <Application x:Class="`expand('%:r')"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -660,7 +778,7 @@ abbr        (tempate) Application
 
 #------------------------------------------------------
 snippet     control
-abbr        (tempate) UserControl
+abbr        (@tempate) UserControl
     <UserControl x:Class="`expand('%:r')"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -669,4 +787,49 @@ abbr        (tempate) UserControl
         <UserControl.Resources>
         </UserControl.Resources>${1}
     </UserControl>
+
+#------------------------------------------------------
+snippet     rect
+abbr        (figure) Rectangle
+    <Rectangle
+        Stroke="Black" Fill="#FFFB0000" StrokeThickness="5"/>
+
+#------------------------------------------------------
+snippet     line
+abbr        (figure) Line
+    <Line
+        X1="10" Y1="10"
+        X2="50" Y2="50"
+        Stroke="Black"
+        StrokeThickness="4" />
+
+#------------------------------------------------------
+snippet     ellipse
+abbr        (figure) Ellipse
+    <Ellipse
+        Fill="Yellow"
+        Height="100"
+        Width="200"
+        StrokeThickness="2"
+        Stroke="Black"/>
+
+#------------------------------------------------------
+snippet     polygon
+abbr        (figure) Polygon
+    <Polygon
+        Points="300,200 400,125 400,275 300,200"
+        Stroke="Purple" 
+        StrokeThickness="2">
+        <Polygon.Fill>
+           <SolidColorBrush Color="Blue" Opacity="0.4"/>
+        </Polygon.Fill>
+    </Polygon>
+
+#------------------------------------------------------
+snippet     path
+abbr        (figure) Path
+    <Path
+        Stroke="DarkGoldenRod"
+        StrokeThickness="3" 
+        Data="M 100,200 C 100,25 400,350 400,175 H 280" />
 

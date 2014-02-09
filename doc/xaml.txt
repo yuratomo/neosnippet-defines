@@ -1,0 +1,125 @@
+=== common ===
+<     : <___></___>
+///   : Comment
+clr   : xmlns:___=cls-namespace:___;assembly=___
+2006  : xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+2006x : xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+=== control ===
+button   : Button
+calendar : Calendar
+check    : Checkbox
+combo    : ComboBox
+datagrid : DataGrid
+datapick : DataPicker
+image    : Image
+list     : ListBox
+menu     : Menu
+password : PasswordBox
+progress : ProgressBar
+radio    : RadioButton
+rich     : RichTextBox
+slider   : Slider
+tab      : TabControl
+text     : TextBlock
+textbox  : TextBox
+toggle   : ToggleButton
+toolbar  : ToolBarTray
+
+=== container ===
+canvas  : Canvas
+doc     : DockPanel
+expander: Expander
+grid    : Grid
+groupbox: GroupBox
+col     : Grid.ColumnDefinitions
+row     : Grid.RowDefinitions
+popup   : Popup
+scroll  : ScrollViewer
+stack   : StackPanel
+status  : StatusBar
+tree    : TreeView
+uniform : UniformGrid
+viewbox : ViewBox
+wrap    : WrapPanel
+
+=== parts ===
+border   : Border
+bullet   : BulletDecorator 
+gridsp   : GridSplitter
+resize   : ResizeGrip
+repeate  : RepeatButton
+scrollbar: ScrollBar
+thumb    : Thumb
+
+=== brush ===
+solid      : SolidColorBrush
+imagebrush : ImageBrush
+linear     : LinearGradientBrush
+radial     : RadialGradientBrush
+drawing    : DrawingBrush
+visualbrush: VisualBrush
+
+=== figure ===
+rect     : Rectangle
+ellipse  : Ellipse
+line     : Line
+polygon  : Polygon
+polyline : Polyline
+path     : Path
+
+=== animation ===
+ani_color    : ColorAnimation
+ani_double   : DoubleAnimation
+ani_frames   : DoubleAnimationUsingKeyFrames
+ani_thick    : ThicknessAnimation
+frame_easing : EasingDoubleKeyFrame
+frame_linear : LinearDoubleKeyFrame
+frame_spline : SplineDoubleKeyFrame
+frame_disc   : DiscreteDoubleKeyFrame
+
+=== template ===
+app          : Application
+control      : UserControl
+datatemplate : DataTemplate
+main         : Window
+page         : Page
+template     : ControlTemplate
+window       : Window
+
+=== style ===
+setter       : Setter
+story        : StoryBoard
+style        : Style
+datatrigger  : DataTrigger
+eventtrigger : DataTrigger
+trigger      : trigger
+
+=== behavior ===
+fluid    : FluidMoveBehavior
+behavior : Interaction.Behaviors
+visual   : VisualStateManagee
+vs       : VisualState
+vs_checked           : Checked
+vs_closed            : Closed
+vs_determinate       : Determinate <ProgressBar>
+vs_disabled          : Disabled
+vs_editable          : Editable
+vs_focused           : Focused
+vs_focuseddropdown   : FocusedDropDown
+vs_indeterminate     : Indeterminate <ProgressBar>
+vs_invalidFocused    : InvalidFocused
+vs_invalidUnfocused  : InvalidUnfocused
+vs_mouseover         : MouseOver
+vs_normal            : Normal
+vs_open              : Open
+vs_pressed           : Pressed
+vs_readonly          : ReadOnly
+vs_selected          : Selected
+vs_selectedunfocused : SelectedUnfocused <ListBoxItem, ListViewItem>
+vs_unchecked         : Unchecked
+vs_uneditable        : Uneditable
+vs_unfocused         : Unfocused
+vs_unselected        : Unselected
+vs_valid             : Valid
+
