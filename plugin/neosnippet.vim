@@ -15,7 +15,7 @@ function! neosnippet#complete(findstart, base)
     return start
   else
     try
-      return filter(values(neosnippet#get_snippets()), 'v:val.word =~ a:base')
+      return filter(values(neosnippet#helpers#get_snippets()), 'v:val.word =~ a:base')
     catch
       return []
     endtry

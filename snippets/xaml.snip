@@ -16,7 +16,92 @@ abbr        (@common)xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 #------------------------------------------------------
 snippet     clr
 abbr        (@common)xmlns:___=cls-namespace:___;assembly=___
-    xmlns:${1:myns}="clr-namespace:${2:Namespace}{$3:;assembly=MyLibAssembly}"
+    xmlns:${1:myns}="clr-namespace:${2:Namespace}${3:;assembly=MyLibAssembly}"
+
+#------------------------------------------------------
+snippet     res
+abbr        (@common)Content
+    Content="{Binding Source={StaticResource resources}, Path=${1}}" ${2}
+
+#------------------------------------------------------
+snippet     c
+abbr        (@common)Content
+    Content="${1}
+
+#------------------------------------------------------
+snippet     t
+abbr        (@common)Text=
+    Text="${1}
+
+#------------------------------------------------------
+snippet     w
+abbr        (@common)Width=
+    Width="${1}
+
+#------------------------------------------------------
+snippet     h
+abbr        (@common)Height=
+    Height="${1}
+
+#------------------------------------------------------
+snippet     m
+abbr        (@common)Margin=
+    Margin="${1}
+
+#------------------------------------------------------
+snippet     va
+abbr        (@common)VerticalAlignment=
+    VerticalAlignment="${1}
+
+#------------------------------------------------------
+snippet     ha
+abbr        (@common)HorizontalAlignment=
+    HorizontalAlignment="${1}
+
+#------------------------------------------------------
+snippet     row
+abbr        (@common) Grid.Row
+    Grid.Row="${1:1}" ${2}
+
+#------------------------------------------------------
+snippet     col
+abbr        (@common) Grid.Column
+    Grid.Column="${1:1}" ${2}
+
+#------------------------------------------------------
+snippet     rows
+abbr        (@common) Grid.RowSpan
+    Grid.RowSpan="${1:2}" ${2}
+
+#------------------------------------------------------
+snippet     cols
+abbr        (@common) Grid.ColumnSpan
+    Grid.ColumnSpan="${1:2}" ${2}
+
+#------------------------------------------------------
+snippet     dock
+abbr        (@common) DockPanel.Dock
+    DockPanel.Dock="${1:Left}" ${2}
+
+#------------------------------------------------------
+snippet     left
+abbr        (@common) Canvas.Left
+    Canvas.Left="${1}" ${2}
+
+#------------------------------------------------------
+snippet     right
+abbr        (@common) Canvas.Right
+    Canvas.Right="${1}" ${2}
+
+#------------------------------------------------------
+snippet     top
+abbr        (@common) Canvas.Top
+    Canvas.Top="${1}" ${2}
+
+#------------------------------------------------------
+snippet     bottom
+abbr        (@common) Canvas.Bottom
+    Canvas.Bottom="${1}" ${2}
 
 #------------------------------------------------------
 snippet     <
@@ -37,6 +122,11 @@ abbr        (control) RichTextBox
 snippet     textbox
 abbr        (control) TextBox
     <TextBox Text="${1:Text}"/>
+
+#------------------------------------------------------
+snippet     label
+abbr        (control) Label
+    <Label Content="${1:Text}"/>
 
 #------------------------------------------------------
 snippet     button
@@ -60,7 +150,8 @@ abbr        (parts) Border
       BorderThickness="${1:1,1,1,1}" 
       BorderBrush="${2:Black}" 
       CornerRadius="${3:3,3,3,3}" 
-      Background="${4:White}"/>
+      Background="${4:Gray}">
+    </Border>
 
 #------------------------------------------------------
 snippet     bullet
@@ -200,14 +291,14 @@ abbr        (panel) Grid
     </Grid>
 
 #------------------------------------------------------
-snippet     row
+snippet     rowd
 abbr        (panel) Grid.RowDefinitions
     <Grid.RowDefinitions>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>${1}
 
 #------------------------------------------------------
-snippet     col
+snippet     cold
 abbr        (panel) Grid.ColumnDefinitions
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="*"/>

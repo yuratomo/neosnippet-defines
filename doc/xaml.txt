@@ -4,6 +4,23 @@
 clr   : xmlns:___=cls-namespace:___;assembly=___
 2006  : xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 2006x : xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+res   : Content="{Binding Source={StaticResource resources}, Path=
+c     : Content="
+t     : Text="
+w     : Width="
+h     : Height="
+m     : Margin="
+va    : VerticalAlignment="
+ha    : HorizontalAlighment="
+col   : Grid.Column
+row   : Grid.Row
+cols  : Grid.ColumnSpan
+rows  : Grid.RowSpan
+dock  : DockPanel.Dock
+left  : Canval.Left
+right : Canval.Right
+Top   : Canval.Top
+bottom: Canval.Bottom
 
 === control ===
 button   : Button
@@ -21,6 +38,7 @@ radio    : RadioButton
 rich     : RichTextBox
 slider   : Slider
 tab      : TabControl
+label    : Label
 text     : TextBlock
 textbox  : TextBox
 toggle   : ToggleButton
@@ -32,8 +50,8 @@ doc     : DockPanel
 expander: Expander
 grid    : Grid
 groupbox: GroupBox
-col     : Grid.ColumnDefinitions
-row     : Grid.RowDefinitions
+cold    : Grid.ColumnDefinitions
+rowd    : Grid.RowDefinitions
 popup   : Popup
 scroll  : ScrollViewer
 stack   : StackPanel
